@@ -11,7 +11,7 @@ import CategoryCollectionBar from './CategoryCollectionBar';
 
 function Navbar() {
   const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const isRTL = i18n.dir(i18n.language) === 'rtl';
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
@@ -201,7 +201,7 @@ function Navbar() {
                 </button>
 
                 {isCartDropdownOpen && (
-                  <div className="absolute top-full right-0 mt-3 z-50">
+                  <div className={`absolute top-full mt-3 z-50 ${isRTL ? 'left-0 translate-x-2' : 'right-0'}`}>
                     <CartDropdown
                       isOpen={isCartDropdownOpen}
                       onClose={() => setIsCartDropdownOpen(false)}
