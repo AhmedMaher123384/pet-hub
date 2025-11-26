@@ -17,8 +17,8 @@ function Navbar() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const [cartItemsCount] = useState(5);
-  const [wishlistItemsCount] = useState(12);
+  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [wishlistItemsCount, setWishlistItemsCount] = useState(0);
   const [user] = useState<any>(null);
 
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -26,6 +26,64 @@ function Navbar() {
   const [isCartHovered, setIsCartHovered] = useState(false);
 
   const cartDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Load counts from localStorage and keep them in sync with events
+  useEffect(() => {
+    const calculateCartCount = () => {
+      try {
+        const localCart = localStorage.getItem('cart');
+        if (!localCart) {
+          setCartItemsCount(0);
+          return;
+        }
+        const cartItems = JSON.parse(localCart);
+        if (Array.isArray(cartItems)) {
+          const totalItems = cartItems.reduce((sum: number, item: any) => sum + (item.quantity || 1), 0);
+          setCartItemsCount(totalItems);
+        } else {
+          setCartItemsCount(0);
+        }
+      } catch (error) {
+        setCartItemsCount(0);
+      }
+    };
+
+    const calculateWishlistCount = () => {
+      try {
+        const savedWishlist = localStorage.getItem('wishlist');
+        if (!savedWishlist) {
+          setWishlistItemsCount(0);
+          return;
+        }
+        const ids = JSON.parse(savedWishlist);
+        setWishlistItemsCount(Array.isArray(ids) ? ids.length : 0);
+      } catch (error) {
+        setWishlistItemsCount(0);
+      }
+    };
+
+    // initial load
+    calculateCartCount();
+    calculateWishlistCount();
+
+    // listeners
+    const onCartUpdated = () => calculateCartCount();
+    const onCartCleared = () => calculateCartCount();
+    const onWishlistUpdated = () => calculateWishlistCount();
+    const onWishlistCleared = () => calculateWishlistCount();
+
+    window.addEventListener('cartUpdated', onCartUpdated as any);
+    window.addEventListener('cartCleared', onCartCleared as any);
+    window.addEventListener('wishlistUpdated', onWishlistUpdated as any);
+    window.addEventListener('wishlistCleared', onWishlistCleared as any);
+
+    return () => {
+      window.removeEventListener('cartUpdated', onCartUpdated as any);
+      window.removeEventListener('cartCleared', onCartCleared as any);
+      window.removeEventListener('wishlistUpdated', onWishlistUpdated as any);
+      window.removeEventListener('wishlistCleared', onWishlistCleared as any);
+    };
+  }, []);
 
   // Smooth Scroll Hide/Show - No Shaking
   useEffect(() => {
@@ -116,7 +174,7 @@ function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <LanguageCurrencySelector />
 
-              <Link to="/wishlist" className="relative group">
+              <Link to="/wishlist" className="relative group" data-wishlist-count>
                 <div className="p-3 rounded-full hover:bg-gray-100 transition">
                   <Heart className="w-6 h-6 text-[#e28437]" />
                   {wishlistItemsCount > 0 && (
@@ -127,7 +185,7 @@ function Navbar() {
                 </div>
               </Link>
 
-              <div className="relative" ref={cartDropdownRef}>
+              <div className="relative" ref={cartDropdownRef} data-cart-count>
                 <button
                   onMouseEnter={() => setIsCartHovered(true)}
                   onMouseLeave={() => setIsCartHovered(false)}
