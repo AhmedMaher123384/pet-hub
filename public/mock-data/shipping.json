@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "mock-shipping-riyadh",
+    "regionName": "الرياض",
+    "price": 20,
+    "estimatedDays": 2,
+    "isActive": true,
+    "isDefault": true,
+    "regions": ["الرياض"],
+    "icon": ""
+  },
+  {
+    "_id": "mock-shipping-jeddah",
+    "regionName": "جدة",
+    "price": 25,
+    "estimatedDays": 3,
+    "isActive": true,
+    "isDefault": false,
+    "regions": ["جدة"],
+    "icon": ""
+  },
+  {
+    "_id": "mock-shipping-dammam",
+    "regionName": "الدمام",
+    "price": 30,
+    "estimatedDays": 4,
+    "isActive": true,
+    "isDefault": false,
+    "regions": ["الشرقية"],
+    "icon": ""
+  }
+]

@@ -1,0 +1,10 @@
+[
+  { "id": 1, "logo": "https://picsum.photos/seed/client-1/200/80", "website": "example.com", "isActive": true, "featured": true },
+  { "id": 2, "logo": "https://picsum.photos/seed/client-2/200/80", "website": "example.org", "isActive": true, "featured": false },
+  { "id": 3, "logo": "https://picsum.photos/seed/client-3/200/80", "website": "https://afterads.com", "isActive": true },
+  { "id": 4, "logo": "https://picsum.photos/seed/client-4/200/80", "website": "brand.co", "isActive": true },
+  { "id": 5, "logo": "https://picsum.photos/seed/client-5/200/80", "website": "store.sa", "isActive": true },
+  { "id": 6, "logo": "https://picsum.photos/seed/client-6/200/80", "website": "company.net", "isActive": true },
+  { "id": 7, "logo": "https://picsum.photos/seed/client-7/200/80", "website": "brand.io", "isActive": true },
+  { "id": 8, "logo": "https://picsum.photos/seed/client-8/200/80", "website": "agency.dev", "isActive": true }
+]

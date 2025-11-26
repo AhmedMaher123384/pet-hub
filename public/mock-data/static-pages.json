@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "من نحن",
+    "slug": "about",
+    "content": "<h2>من نحن</h2><p>نحن شركة AfterAds نعمل على تقديم حلول تسويقية وإعلانية مبتكرة لعملائنا. هذه صفحة تجريبية ضمن وضع الموك.</p>",
+    "metaDescription": "نبذة عن AfterAds",
+    "isActive": true,
+    "showInFooter": true,
+    "imageUrl": "",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "الشروط والأحكام",
+    "slug": "terms",
+    "content": "<h2>الشروط والأحكام</h2><p>يرجى قراءة هذه الشروط بعناية قبل استخدام الموقع. هذه صفحة ثابتة ضمن وضع الموك.</p>",
+    "metaDescription": "الشروط والأحكام لاستخدام الموقع",
+    "isActive": true,
+    "showInFooter": true,
+    "imageUrl": "",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "سياسة الخصوصية",
+    "slug": "privacy",
+    "content": "<h2>سياسة الخصوصية</h2><p>نحترم خصوصيتك ونلتزم بحماية بياناتك. هذه صفحة ثابتة ضمن وضع الموك.</p>",
+    "metaDescription": "سياسة الخصوصية لأفتر أدز",
+    "isActive": true,
+    "showInFooter": true,
+    "imageUrl": "",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  }
+]

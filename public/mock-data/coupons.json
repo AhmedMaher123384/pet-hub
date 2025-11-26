@@ -1,0 +1,4 @@
+[
+  {"code": "MOCK10", "discountType": "percentage", "discountValue": 10, "isActive": true, "minimumAmount": 100},
+  {"code": "MOCK50", "discountType": "fixed", "discountValue": 50, "isActive": true, "minimumAmount": 0}
+]

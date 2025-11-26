@@ -1,0 +1,43 @@
+[
+  {
+    "id": 101,
+    "name": "أحمد",
+    "position": "مدير تسويق",
+    "testimonial": "خدمة رائعة وسرعة في التنفيذ، فريق محترف جدًا.",
+    "image": "https://picsum.photos/seed/testimonial-101/120/120",
+    "rating": 5,
+    "isActive": true,
+    "featured": true,
+    "createdAt": "2025-01-05T10:00:00Z"
+  },
+  {
+    "id": 102,
+    "name": "مريم",
+    "position": "رائدة أعمال",
+    "testimonial": "التجربة ممتازة، سهولة في الاستخدام ودعم فني سريع.",
+    "image": "https://picsum.photos/seed/testimonial-102/120/120",
+    "rating": 5,
+    "isActive": true,
+    "createdAt": "2025-01-08T14:20:00Z"
+  },
+  {
+    "id": 103,
+    "name": "سلمان",
+    "position": "مصمم واجهات",
+    "testimonial": "تصميمات عصرية ومتجاوبة، أنصح بالتعامل معهم.",
+    "image": "https://picsum.photos/seed/testimonial-103/120/120",
+    "rating": 4,
+    "isActive": true,
+    "createdAt": "2025-01-09T09:00:00Z"
+  },
+  {
+    "id": 104,
+    "name": "ليلى",
+    "position": "صاحبة متجر",
+    "testimonial": "الدعم ممتاز والتحسينات مستمرة، شكرًا لكم.",
+    "image": "https://picsum.photos/seed/testimonial-104/120/120",
+    "rating": 5,
+    "isActive": true,
+    "createdAt": "2025-01-10T11:45:00Z"
+  }
+]

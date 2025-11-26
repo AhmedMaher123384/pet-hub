@@ -1,0 +1,26 @@
+[
+  {
+    "id": 5001,
+    "name": { "ar": "مجموعة آخر العروض", "en": "Last Offers Collection" },
+    "description_ar": "تشكيلة مختارة من أحدث العروض عبر الأقسام.",
+    "description_en": "Curated latest offers across all categories.",
+    "type": "manual",
+    "isActive": true,
+    "image": "/images/collections/last-offers.jpg",
+    "products": [
+      5, 7, 10, 12, 16, 18, 22, 24, 28, 30, 33, 35
+    ]
+  },
+  {
+    "id": 5002,
+    "name": { "ar": "وصل حديثاً", "en": "New Arrivals" },
+    "description_ar": "أحدث المنتجات المضافة حديثاً إلى المتجر.",
+    "description_en": "The latest products newly added to the store.",
+    "type": "manual",
+    "isActive": true,
+    "image": "/images/collections/new-arrivals.jpg",
+    "products": [
+      28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+    ]
+  }
+]

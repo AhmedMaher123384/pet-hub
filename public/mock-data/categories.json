@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1000,
+    "name": "الكلاب",
+    "name_en": "Dogs",
+    "description": "منتجات وإكسسوارات مخصصة للكلاب",
+    "categoryType": "regular",
+    "parentId": null,
+    "isActive": true,
+    "order": 1,
+    "image": "https://picsum.photos/seed/category-1000/200/200"
+  },
+  {
+    "id": 1100,
+    "name": "القطط",
+    "name_en": "Cats",
+    "description": "منتجات وإكسسوارات مخصصة للقطط",
+    "categoryType": "regular",
+    "parentId": null,
+    "isActive": true,
+    "order": 2,
+    "image": "https://picsum.photos/seed/category-1100/200/200"
+  },
+  {
+    "id": 1200,
+    "name": "الطيور",
+    "name_en": "Birds",
+    "description": "منتجات مخصصة لمختلف أنواع الطيور",
+    "categoryType": "regular",
+    "parentId": null,
+    "isActive": true,
+    "order": 3,
+    "image": "https://picsum.photos/seed/category-1200/200/200"
+  },
+  {
+    "id": 1300,
+    "name": "الأسماك",
+    "name_en": "Fish",
+    "description": "منتجات وأدوات لرعاية الأسماك",
+    "categoryType": "regular",
+    "parentId": null,
+    "isActive": true,
+    "order": 4,
+    "image": "https://picsum.photos/seed/category-1300/200/200"
+  },
+  {
+    "id": 1400,
+    "name": "الهامستر",
+    "name_en": "Hamster",
+    "description": "منتجات وإكسسوارات للهامستر",
+    "categoryType": "regular",
+    "parentId": null,
+    "isActive": true,
+    "order": 5,
+    "image": "https://picsum.photos/seed/category-1400/200/200"
+  }
+] 
