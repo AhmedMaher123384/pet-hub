@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import heroImage from '../../assets/about.png';
 import ArabicCollectionList from '../collections/ArabicCollectionList';
@@ -20,7 +20,12 @@ interface Category {
 const AboutUsSection: React.FC = () => {
   const { i18n, t } = useTranslation();
   const [categories, setCategories] = useState<Category[]>([]);
-  const isRtl = (typeof (i18n as any).dir === 'function' ? (i18n as any).dir() === 'rtl' : String(i18n.language || '').startsWith('ar'));
+  
+  // ✅ الحل النهائي: حساب isRtl مباشرة من اللغة الحالية
+  const isRtl = useMemo(() => {
+    return i18n.language === 'ar' || 
+           (typeof (i18n as any).dir === 'function' && (i18n as any).dir() === 'rtl');
+  }, [i18n.language]);
 
   const getCategoryName = (category: Category) => {
     const lang = i18n.language;
@@ -256,32 +261,27 @@ const AboutUsSection: React.FC = () => {
                       animation: `fadeInUp 0.6s ease-out ${idx * 0.1}s both`
                     }}
                   >
-                    {/* Category header */}
-                    <div className={`flex items-end ${isRtl ? 'flex-row-reverse' : ''} justify-between mb-6 pb-4 border-b-2 border-gradient-to-r from-[#e28437]/20 via-[#e28437]/10 to-transparent`}>
-                      <h3 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
+                    {/* Category header - Centered title */}
+                    <div className="text-center mb-8">
+                      <h3 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700 mb-6">
                         {displayName}
                       </h3>
-                      <Link 
-                        to={to} 
-                        className="group/link relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#e28437] to-[#f5a962]" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#f5a962] to-[#e28437] opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" />
-            <span className="relative text-white font-bold text-sm">{t('categories.view_all')}</span>
-                        {(() => {
-                          const isRtl = i18n?.language === 'ar' || (typeof i18n?.dir === 'function' && i18n.dir() === 'rtl');
-                          const hoverClass = isRtl ? 'group-hover/link:-translate-x-1' : 'group-hover/link:translate-x-1';
-                          const d = isRtl ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7';
-                          return (
-                            <svg className={`relative w-4 h-4 text-white ${hoverClass} transition-transform duration-300`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={d} />
-                            </svg>
-                          );
-                        })()}
-                      </Link>
+                      
+                      {/* View All button - Above the cards */}
+                      <div className={`mb-6 ${isRtl ? 'text-left' : 'text-right'}`}>
+                        <Link 
+                          to={to} 
+                          className="group/link relative inline-flex items-center justify-center px-8 py-3 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg"
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#e28437] to-[#f5a962]" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#f5a962] to-[#e28437] opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" />
+                          <span className="relative text-white font-bold">{t('categories.view_all')}</span>
+                        </Link>
+                      </div>
+                      
+                      {/* Products preview */}
+                      <CategoryProductsPreview categoryId={category.id} limit={5} />
                     </div>
-                    
-                    <CategoryProductsPreview categoryId={category.id} limit={5} />
                   </div>
                 );
               })}

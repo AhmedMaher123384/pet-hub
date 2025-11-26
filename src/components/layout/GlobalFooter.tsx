@@ -33,7 +33,7 @@ const GlobalFooter: React.FC = () => {
   return (
     <>
       {/* === Footer رئيسي — صغير، بلون e28437، بدون زينة === */}
-      <footer className="bg-[#e28512] text-gray-200">
+      <footer className="bg-[#e285900] text-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             
