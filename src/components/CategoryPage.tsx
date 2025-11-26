@@ -217,12 +217,12 @@ const CategoryPage: React.FC = () => {
           <div
             className={
               viewMode === 'grid'
-                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6'
+                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 justify-items-center mx-auto'
                 : 'space-y-5' // وضع القائمة غير مُفعّل حاليًا، لكن الـ class جاهز
             }
           >
             {sortedProducts.map((product) => (
-              <div key={product.id} className="w-full">
+              <div key={product.id} className="w-full flex justify-center">
                 <ProductCard product={product} viewMode={viewMode} />
               </div>
             ))}

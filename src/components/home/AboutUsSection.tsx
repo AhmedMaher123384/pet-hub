@@ -132,8 +132,8 @@ const AboutUsSection: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover/hero:opacity-100 transition-opacity duration-500" />
                 
                 {/* Floating badge */}
-                <div className="absolute top-6 right-6 px-6 py-3 bg-white/95 backdrop-blur-sm rounded-full shadow-lg transform translate-x-0 group-hover/hero:translate-x-2 transition-transform duration-300">
-                  <span className="text-[#e28437] font-bold text-sm">{t('home.explore_more')}</span>
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 bg-white/95 backdrop-blur-sm rounded-full shadow-lg transform translate-x-0 group-hover/hero:translate-x-2 transition-transform duration-300">
+                  <span className="text-[#e28437] font-bold text-xs sm:text-sm md:text-sm">{t('home.explore_more')}</span>
                 </div>
               </div>
             </div>

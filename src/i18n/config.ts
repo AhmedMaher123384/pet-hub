@@ -38,6 +38,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    lng: 'ar', // Set Arabic as default language
     fallbackLng: 'ar',
     defaultNS: 'translation',
     ns: ['translation', 'common', 'product_detail', 'product_card', 'product'],
@@ -53,7 +54,7 @@ i18n
     },
     
     react: {
-      useSuspense: false,
+      useSuspense: false, 
     },
   });
 

@@ -156,8 +156,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
     return (
       <div
         className={`group/card relative flex flex-col bg-white rounded-2xl border border-gray-200/50 shadow-sm w-full overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-[#e28437]/30 ${
-          isRTL ? 'text-right' : 'text-left'
-        }`}
+          isRTL ? 'text-right md:text-right' : 'text-left md:text-left'
+        } text-center md:text-start`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -297,8 +297,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
   // ======================= GRID VIEW =======================
   return (
     <div
-      className={`group/card relative flex flex-col bg-white rounded-2xl border border-gray-200/50 shadow-sm w-full max-w-xs h-full overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-[#e28437]/30 ${
-        isRTL ? 'text-right' : 'text-left'
+      className={`group/card relative flex flex-col bg-white rounded-2xl border border-gray-200/50 shadow-sm w-full max-w-xs h-full overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-[#e28437]/30 text-center md:text-start ${
+        isRTL ? 'md:text-right' : 'md:text-left'
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
