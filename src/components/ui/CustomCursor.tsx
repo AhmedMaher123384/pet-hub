@@ -23,7 +23,6 @@ const CustomCursor = () => {
   const [isMobile, setIsMobile] = useState(true); // Default to true for SSR
 
   useEffect(() => {
-    // Check if we're on mobile/tablet after component mounts
     const checkMobile = () => {
       if (typeof window !== 'undefined') {
         setIsMobile(window.innerWidth <= 1024);
@@ -32,7 +31,6 @@ const CustomCursor = () => {
     
     checkMobile();
     
-    // Add resize listener to update mobile state
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', checkMobile);
       return () => window.removeEventListener('resize', checkMobile);
@@ -40,7 +38,6 @@ const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
-    // Don't add event listeners if cursor should be hidden or if document is not available
     if (shouldHideCursor || isMobile || typeof document === 'undefined' || typeof window === 'undefined') {
       return;
     }
@@ -53,7 +50,6 @@ const CustomCursor = () => {
     const handleClick = (e: MouseEvent) => {
       setIsClicking(true);
       
-      // Create ripple effect
       const newRipple = {
         id: Date.now(),
         x: e.clientX,
@@ -61,7 +57,6 @@ const CustomCursor = () => {
       };
       setRipples(prev => [...prev, newRipple]);
       
-      // Remove ripple after animation
       setTimeout(() => {
         setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id));
       }, 300);
@@ -74,7 +69,6 @@ const CustomCursor = () => {
       
       const touch = e.touches[0];
       if (touch) {
-        // Create ripple effect
         const newRipple = {
           id: Date.now(),
           x: touch.clientX,
@@ -82,7 +76,6 @@ const CustomCursor = () => {
         };
         setRipples(prev => [...prev, newRipple]);
         
-        // Remove ripple after animation
         setTimeout(() => {
           setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id));
         }, 300);
@@ -91,20 +84,14 @@ const CustomCursor = () => {
       setTimeout(() => setIsClicking(false), 100);
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
-
-    const handleMouseEnter = () => {
-      setIsVisible(true);
-    };
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
 
     try {
-      // More sensitive event listeners
       document.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('click', handleClick);
-      document.addEventListener('mousedown', handleClick); // Extra sensitivity
-      document.addEventListener('touchstart', handleTouchStart); // Touch support
+      document.addEventListener('mousedown', handleClick);
+      document.addEventListener('touchstart', handleTouchStart);
       document.addEventListener('mouseleave', handleMouseLeave);
       document.addEventListener('mouseenter', handleMouseEnter);
     } catch (error) {
@@ -125,7 +112,6 @@ const CustomCursor = () => {
     };
   }, [shouldHideCursor, location.pathname]);
 
-  // Return null after all hooks have been called
   if (shouldHideCursor || isMobile) {
     return null;
   }
@@ -134,45 +120,46 @@ const CustomCursor = () => {
     <>
       {isVisible && (
         <>
-          {/* Main cursor */}
+          {/* Main cursor — refined with #d9a890 gradient & elegant glow */}
           <div
             className={`fixed pointer-events-none z-[9999] ${
-                 isClicking ? 'animate-professionalPulse' : ''
-               }`}
+              isClicking ? 'animate-professionalPulse' : ''
+            }`}
             style={{
               left: position.x - 20,
               top: position.y - 20,
               width: '40px',
               height: '40px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #18b5d5, #0ea5e9, #06b6d4)',
-              boxShadow: '0 0 20px rgba(24, 181, 213, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2)',
+              background: 'linear-gradient(135deg, #d9a890, #c58b70, #b87a5e)', // Warm, sophisticated orange gradient
+              boxShadow: '0 0 20px rgba(217, 168, 144, 0.45), inset 0 0 20px rgba(255, 255, 255, 0.15)',
               transform: isClicking ? 'scale(1.5)' : 'scale(1)',
-               opacity: isClicking ? '0.9' : '0.7',
+              opacity: isClicking ? '0.95' : '0.85',
+              transition: 'transform 0.2s ease, opacity 0.2s ease',
             }}
           >
-            {/* Inner glow */}
+            {/* Inner subtle glow — soft white-to-transparent radial */}
             <div
               className="absolute inset-2 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 75%)',
               }}
             />
             
-            {/* Center dot */}
+            {/* Center dot — refined with ivory-white for contrast */}
             <div
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               style={{
                 width: '6px',
                 height: '6px',
                 borderRadius: '50%',
-                backgroundColor: '#ffffff',
-                boxShadow: '0 0 10px rgba(255, 255, 255, 0.8)',
+                backgroundColor: '#fffdf8', // Warm off-white
+                boxShadow: '0 0 8px rgba(245, 235, 220, 0.9)', // Soft ivory glow
               }}
             />
           </div>
           
-          {/* Outer ring */}
+          {/* Outer ring — elegant & subtle */}
           <div
             className="fixed pointer-events-none z-[9998]"
             style={{
@@ -181,15 +168,16 @@ const CustomCursor = () => {
               width: '60px',
               height: '60px',
               borderRadius: '50%',
-              border: '1px solid rgba(24, 181, 213, 0.3)',
+              border: '1px solid rgba(217, 168, 144, 0.28)', // #d9a890 @ 28% opacity
               transform: isClicking ? 'scale(2)' : 'scale(1)',
-               opacity: isClicking ? '0.3' : '0.6',
+              opacity: isClicking ? '0.25' : '0.5',
+              transition: 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease',
             }}
           />
         </>
       )}
       
-      {/* Ripple effects */}
+      {/* Ripple effects — warm orange accent */}
       {ripples.map((ripple) => (
         <div
           key={ripple.id}
@@ -200,8 +188,9 @@ const CustomCursor = () => {
             width: '50px',
             height: '50px',
             borderRadius: '50%',
-            border: '2px solid #18b5d5',
-            opacity: '0.6',
+            border: '2px solid #d9a890',
+            opacity: '0.5',
+            animation: 'ripple 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards',
           }}
         />
       ))}
