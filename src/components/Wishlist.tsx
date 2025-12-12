@@ -117,9 +117,7 @@ const Wishlist: React.FC = () => {
   const addToCart = async (productId: number, productName: string) => {
     try {
       const success = await addToCartUnified(productId, productName, 1);
-      if (success) {
-        smartToast.frontend.success(`تم إضافة ${productName} إلى السلة`);
-      }
+      // لا تعرض أي توست نجاح عند الإضافة للسلة بناءً على الطلب
     } catch (error) {
       smartToast.frontend.error('فشل في إضافة المنتج للسلة');
     }

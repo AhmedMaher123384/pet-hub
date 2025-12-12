@@ -60,7 +60,7 @@ const LanguageCurrencySelector: React.FC = () => {
 
       {/* Compact Dropdown */}
       {isOpen && (
-        <div className="absolute top-full mt-2 right-0 w-56 bg-white rounded-xl shadow-2xl border border-[#e28437]/20 overflow-hidden z-50 animate-in slide-in-from-top-2 duration-300">
+        <div className="absolute right-0 w-56 bg-white rounded-xl shadow-2xl border border-[#e28437]/20 overflow-hidden z-50 animate-in slide-in-from-bottom-2 lg:slide-in-from-top-2 duration-300 bottom-full mb-2 lg:top-full lg:mt-2 lg:bottom-auto lg:mb-0">
           {/* Simple Tabs */}
           <div className="flex border-b border-[#e28437]/15">
             <button

@@ -117,9 +117,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode = 'grid' })
     }
     try {
       const success = await addToCartUnified(product.id, getLocalizedContent('name'), quantity);
-      if (success) {
-        smartToast.frontend.success(t('product.added_to_cart', { name: getLocalizedContent('name') }));
-      } else {
+      if (!success) {
         smartToast.frontend.error(t('product.add_to_cart_failed'));
       }
     } catch (error) {

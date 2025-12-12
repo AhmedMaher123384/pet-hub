@@ -114,25 +114,8 @@ export const addToCartUnified = async (
           console.error('❌ [CartUtils] Failed to sync localStorage with server cart:', syncError);
         }
         
-        smartToast.frontend.success(`تم إضافة ${productName} إلى السلة بنجاح! 🛒`);
-
         // إطلاق حدث لتحديث عداد السلة
         window.dispatchEvent(new CustomEvent('cartUpdated'));
-        
-        // إطلاق إشعار إضافة المنتج للسلة
-        window.dispatchEvent(new CustomEvent('showCartNotification', {
-          detail: {
-            product: {
-              name: productName,
-              image: finalImage,
-              price: finalPrice,
-              addOns: attachments?.addOns || [],
-              productOptions: attachments?.productOptions || [],
-              totalPrice: attachments?.totalPrice || finalPrice
-            },
-            quantity: quantity
-          }
-        }));
         
         return true;
       } catch (serverError) {
@@ -276,21 +259,6 @@ export const addToCartUnified = async (
     
     // إطلاق حدث لتحديث عداد السلة
     window.dispatchEvent(new CustomEvent('cartUpdated'));
-    
-    // إطلاق إشعار إضافة المنتج للسلة
-    window.dispatchEvent(new CustomEvent('showCartNotification', {
-      detail: {
-        product: {
-          name: productName,
-          image: finalImage,
-          price: finalPrice,
-          addOns: attachments?.addOns || [],
-          productOptions: attachments?.productOptions || [],
-          totalPrice: attachments?.totalPrice || finalPrice
-        },
-        quantity: quantity
-      }
-    }));
     
     return true;
 
