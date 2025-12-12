@@ -148,7 +148,7 @@ const GlobalFooter: React.FC = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 w-9 h-9 bg-white text-[#e28437] rounded-full flex items-center justify-center shadow-md z-50 md:hidden"
+          className="fixed bottom-4 left-4 w-9 h-9 bg-white text-[#e28437] rounded-full flex items-center justify-center shadow-md z-50 md:hidden"
           aria-label={t('footer.scroll_to_top', { defaultValue: 'العودة للأعلى' })}
         >
           <ArrowUp className="w-4 h-4" />

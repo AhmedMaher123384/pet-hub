@@ -323,17 +323,23 @@ function Navbar() {
 
                 <div>
                   <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
-                    روابط سريعة
+                    {t('footer.important_links', { defaultValue: 'روابط مهمة' })}
                   </h3>
                   <div className="space-y-1">
-                    {['الرئيسية', 'المنتجات', 'سياسة الخصوصية', 'الشروط والأحكام', 'سياسة الإرجاع'].map((item) => (
-                      <button
-                        key={item}
+                    {[
+                      { to: '/privacy-policy', label: t('footer.privacy_policy', { defaultValue: 'سياسة الخصوصية' }) },
+                      { to: '/terms-and-conditions', label: t('footer.terms_conditions', { defaultValue: 'الشروط والأحكام' }) },
+                      { to: '/return-policy', label: t('footer.exchange_return', { defaultValue: 'الاستبدال والاسترجاع' }) },
+                      { to: '/products', label: t('footer.products', { defaultValue: 'المنتجات' }) }
+                    ].map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
                         onClick={() => setIsMenuOpen(false)}
-                        className="w-full text-right py-3.5 border-b border-gray-100 text-gray-700 hover:text-[#e28437] font-medium transition"
+                        className="block w-full text-right py-3.5 border-b border-gray-100 text-gray-700 hover:text-[#e28437] font-medium transition"
                       >
-                        {item}
-                      </button>
+                        {link.label}
+                      </Link>
                     ))}
                   </div>
                 </div>
