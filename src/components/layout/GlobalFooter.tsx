@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import logo from "../../assets/logo.png";
+import tabbyLogo from "../../assets/tabby.png";
 // === نهاية قسم: تصدير المكون ===
 
 // === بداية قسم: المكون الرئيسي ===
@@ -113,14 +114,23 @@ const GlobalFooter: React.FC = () => {
                   />
                 </div>
                 
-                {/* Tamara */}
-                <div className="bg-white rounded px-2 py-1 h-8 flex items-center justify-center min-w-[50px]">
-                  <img 
-                    src="https://cdn.prod.website-files.com/67c184892f7a84b971ff49d9/68931b49f2808979578bdc64_tamara-text-logo-black-en.svg"
-                    alt="Tamara"
-                    className="h-4 object-contain"
-                  />
-                </div>
+              {/* Tamara */}
+              <div className="bg-white rounded px-2 py-1 h-8 flex items-center justify-center min-w-[50px]">
+                <img 
+                  src="https://cdn.prod.website-files.com/67c184892f7a84b971ff49d9/68931b49f2808979578bdc64_tamara-text-logo-black-en.svg"
+                  alt="Tamara"
+                  className="h-4 object-contain"
+                />
+              </div>
+
+              {/* Tabby */}
+              <div className="bg-white rounded px-2 py-1 h-8 flex items-center justify-center min-w-[50px]">
+                <img 
+                  src={tabbyLogo}
+                  alt="Tabby"
+                  className="h-4 object-contain"
+                />
+              </div>
               </div>
             </div>
 
