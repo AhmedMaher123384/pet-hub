@@ -254,12 +254,7 @@ const ShoppingCart: React.FC = () => {
                           )}
                         </div>
 
-                        {!item.product.isAvailable && (
-                          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 text-gray-600 text-sm font-bold rounded-lg">
-                            <Package className="w-4 h-4" />
-                            غير متوفر حالياً
-                          </div>
-                        )}
+                    
                       </div>
 
                       <div className="flex items-center justify-between mt-6">
